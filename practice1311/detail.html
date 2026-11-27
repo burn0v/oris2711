@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ texture.title }}
+{% endblock %}
+
+{% block content %}
+
+<h2>{{ texture.title }}</h2>
+
+<p>{{ texture.description }}</p>
+
+{% if texture.image %}
+    <img src="{{ url_for('static', filename=texture.image) }}" alt="{{ texture.title }}" style="max-width: 100%; height: auto;">
+{% else %}
+    <p>Изображение текстуры пока не добавлено.</p>
+{% endif %}
+
+<a href="{{ url_for('index') }}">Назад</a>
+
+{% endblock %}
